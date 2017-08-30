@@ -1,15 +1,19 @@
-const model = require('../models');
+const model = require('../models/user');
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
 require('dotenv').config()
-var jwt = require('jsonwebtoken');
+
 
 var signup = (req,res) => {
+  var hash =  bcrypt.hashSync(req.body.password,salt);
   model.create({
-    var hash =  bcrypt.hashSync(req.body.password,salt);
     username : req.body.username,
     fullname : req.body.fullname,
     password : hash,
+  }).then(dataUser=>{
+    res.send(dataUser)
+  }).catch(err => {
+    res.send(err)
   })
 }
 
