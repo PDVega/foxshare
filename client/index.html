@@ -20,21 +20,104 @@
             <img id="logo" src="https://media-elerium.cursecdn.com/attachments/210/876/16de5f8dd1ffe99f9e169a0605a960b3.png">
           </a>
           <a class="item" href="#">
-            Fox Share
+            FoxShared
           </a>
           <div class="right menu">
             <div class="ui buttons">
-              <button class="ui button">Sign In</button>
+              <button class="ui button signin">Sign In</button>
               <div class="or"></div>
-              <button class="ui positive button">Sign Up</button>
+              <button class="ui positive button signup">Sign Up</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="container" id="upload">
+      <div class="row">
+      <div class="ui form">
+        <div class="ui five column centered grid">
+          <div class="column">
+            <div class="field">
+                  <div class="field">
+                    <input class="ui icon button btn-file" type="file" name="" value="">
+                  </div>
+            </div>        
+          </div>
+        </div>
+        <div class="ui ten column centered grid">
+          <div class="column">
+            <button class="ui inverted blue button">Upload!</button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="ui two column centered grid">
+          <div class="column" id="list-file">
+            <table class="ui selectable celled table">
+              <thead>
+                <tr>
+                  <th>File Name</th>
+                  <th>Size</th>
+                  <th>Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>No Action</td>
+                  <td>None</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui tiny modal 1" id="signin">
+      <i class="close icon"></i>
+      <div class="ui header">Sign In</div>
+      <div class="content">
+        <form class="ui form">
+          <div class="field">
+            <label>Email</label>
+            <input type="email" name="last-name" placeholder="Last Name">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="last-name" placeholder="Last Name">
+          </div>
+          <button class="ui button" type="submit">SignIn</button>
+        </form>
+      </div>
+    </div>
+    <div class="ui tiny modal 2" id="signup">
+      <i class="close icon"></i>
+      <div class="ui header">Sign Up</div>
+      <div class="content">
+        <form class="ui form">
+          <div class="field">
+            <label>Username</label>
+            <input type="email" name="last-name" placeholder="Last Name">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" name="last-name" placeholder="Last Name">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="last-name" placeholder="Last Name">
+          </div>
+          <button class="ui button" type="submit">SignUp</button>
+        </form>
+      </div>
+      </div>
+    </div>
     <footer class="footer-basic-centered">
 
-			<p class="footer-company-motto">Fox Share</p>
+			<p class="footer-company-motto">FoxShared</p>
 
 			<p class="footer-links">
 				<a href="#">Home</a>
@@ -53,5 +136,13 @@
 			<p class="footer-company-name">Fox Share &copy; 2017</p>
 
 		</footer>
+    <script type="text/javascript">
+      $('.signin').click(function(){
+        $('.ui.tiny.modal.1').modal('show');
+      })
+      $('.signup').click(function(){
+        $('.ui.tiny.modal.2').modal('show');
+      })
+    </script>
   </body>
 </html>

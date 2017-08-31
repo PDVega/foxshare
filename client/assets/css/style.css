@@ -3,9 +3,33 @@
   background-color: #DAF7A6;
 }
 
+#upload{
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+
 #logo{
   height: 50px;
   width: 60px;
+}
+
+.ui.header{
+  text-align: center;
+  padding-top: 20px;
+}
+
+#signin{
+  width: 500px;
+  
+}
+
+#signup{
+  width: 500px;
+  
+}
+
+#list-file{
+  padding-top: 50px;
 }
 
 .item{
