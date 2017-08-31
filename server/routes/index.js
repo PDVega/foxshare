@@ -1,21 +1,22 @@
-var express = require('express');
+const express = require('express');
 const Link = require('../models/Link');
 const controller = require('../controllers/linkController');
-require('dotenv').config()
+// require('dotenv').config()
 
 
 var aws = require('aws-sdk');
-var router = express.Router();
+const router = express.Router();
 var multerS3 = require('multer-s3');
 var multer = require('multer');
 
 
-aws.config.loadFromPath(process.env.CONFIG_JSON_FILE);
-// aws.config.loadFromPath('./config.json');
+// aws.config.loadFromPath(process.env.CONFIG_JSON_FILE);
+// console.log("ini apaan sih", process.env.CONFIG_JSON_FILE);
 // aws.config.loadFromPath({
-//   "accessKeyId": process.env.ACCESS_KEY_ID,
+  // "accessKeyId": process.env.ACCESS_KEY_ID,
 //   "secretAccessKey": process.env.SECRET_ACCESS_KEY
 // });
+aws.config.loadFromPath('./config.json');
 aws.config.update({
     signatureVersion: 'v4'
 })
