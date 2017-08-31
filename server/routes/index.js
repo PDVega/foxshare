@@ -50,14 +50,14 @@ router.get('/public/images', function(req, res, next) {
     res.send('File image');
 })
 
-router.post('/profile/upload', upload.any(), function(req, res, next) {
-  res.send(req.files);
-  console.log(req.files)
+router.post('/profile/upload', upload.single('files'), function(req, res, next) {
+  res.send(req.file);
+  console.log(req.file)
     Link.create({
-      filename: req.files[0].originalname,
-      filetype: req.files[0].mimetype,
-      size: req.files[0].size,
-      location: req.files[0].location
+      filename: req.file.originalname,
+      filetype: req.file.mimetype,
+      size: req.file.size,
+      location: req.file.location
     }), (err, link) => {
       if(err) throw err
       res.send(link)
