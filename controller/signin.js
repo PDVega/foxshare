@@ -1,6 +1,8 @@
 const model = require('../models/user')
 const bcrypt = require('bcrypt')
 var jwt = require('jsonwebtoken');
+require('dotenv').config()
+
 
 var signIn = (req,res) => {
   model.find({username:req.body.username})
@@ -11,7 +13,7 @@ var signIn = (req,res) => {
           name:req.body.name,
           fullname:req.body.fullname
         }
-        var token = jwt.sign(makeToken, 'uhuy')
+        var token = jwt.sign(makeToken, proccess.env.DB_GARAM)
         res.send({pesan:"anda berhasil masuk", Auth:token})
       } else {
         res.send("username dan password tidak sesuai")
