@@ -12,6 +12,7 @@
       <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
       <link rel="stylesheet" href="assets/css/style.css">
       <script src="https://unpkg.com/vue"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div id="app">
@@ -36,19 +37,19 @@
       </div>
       <div class="container" id="upload">
         <div class="row">
-          <div class="ui form">
+          <div class="ui form" enctype="multipart/form-data">
             <div class="ui five column centered grid">
               <div class="column">
                 <div class="field">
                   <div class="field">
-                    <input class="ui icon button btn-file" type="file" name="" value="">
+                    <input class="ui icon button btn-file" type="file" id="fileinput" v-on:change="appendFile">
                   </div>
                 </div>        
               </div>
             </div>
             <div class="ui ten column centered grid">
               <div class="column">
-                <button class="ui inverted blue button">Upload!</button>
+                <button type="submit" class="ui inverted blue button" v-on:click="uploadFile">Upload!</button>
               </div>
             </div>
           </div>
@@ -67,11 +68,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>John</td>
-                    <td>No Action</td>
-                    <td>None</td>
-                  </tr>
+                  <tr v-for="link in links">
+                   <td>{{ link.filename }}</td>
+                   <td>{{ link.size }}</td>
+                   <td><a :href=link.location>Download</a></td>
+                 </tr>
                 </tbody>
               </table>
             </div>
